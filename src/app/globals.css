@@ -1,48 +1,73 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode variant for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   THEME COLOR DEFINITIONS
+   ========================================================================== */
+
 :root {
+  /* Crisp Studio Light Palette */
   --background: #f8fafc;
   --foreground: #090d16;
+  
   --card: #ffffff;
   --card-foreground: #090d16;
+  
   --popover: #ffffff;
   --popover-foreground: #090d16;
+  
   --primary: #059669;
   --primary-foreground: #ffffff;
+  
   --secondary: #f1f5f9;
   --secondary-foreground: #0f172a;
+  
   --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  --muted-foreground: #475569;
+  
   --accent: #f3e8ff;
   --accent-foreground: #6b21a8;
+  
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
+  
   --border: #e2e8f0;
   --input: #e2e8f0;
   --ring: #10b981;
   --radius: 0.75rem;
 
-  --glow-emerald: rgba(16, 185, 129, 0.25);
-  --glow-violet: rgba(139, 92, 246, 0.25);
+  --glow-emerald: rgba(16, 185, 129, 0.15);
+  --glow-violet: rgba(139, 92, 246, 0.15);
 }
 
 .dark {
+  /* Deep Atmospheric Obsidian & Slate Palette */
   --background: #07090e;
   --foreground: #f1f5f9;
+  
   --card: #0d121c;
   --card-foreground: #f1f5f9;
+  
   --popover: #0d121c;
   --popover-foreground: #f1f5f9;
+  
   --primary: #10b981;
   --primary-foreground: #052e16;
+  
   --secondary: #161e2e;
   --secondary-foreground: #f8fafc;
+  
   --muted: #131b28;
   --muted-foreground: #94a3b8;
+  
   --accent: #1e1b4b;
   --accent-foreground: #c084fc;
+  
   --destructive: #7f1d1d;
   --destructive-foreground: #fecaca;
+  
   --border: #1e293b;
   --input: #1e293b;
   --ring: #34d399;
@@ -82,6 +107,7 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Custom Display Serif for High-End Italic Accents */
@@ -112,7 +138,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.light .glass-panel {
+:root:not(.dark) .glass-panel {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -129,11 +155,29 @@ body {
   );
 }
 
+:root:not(.dark) .spotlight-radial {
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 0%,
+    rgba(16, 185, 129, 0.1) 0%,
+    rgba(139, 92, 246, 0.05) 50%,
+    transparent 80%
+  );
+}
+
 .spotlight-toolbox {
   background: radial-gradient(
     circle at 50% -10%,
     rgba(20, 184, 166, 0.2) 0%,
     rgba(139, 92, 246, 0.06) 45%,
+    transparent 70%
+  );
+}
+
+:root:not(.dark) .spotlight-toolbox {
+  background: radial-gradient(
+    circle at 50% -10%,
+    rgba(20, 184, 166, 0.12) 0%,
+    rgba(139, 92, 246, 0.04) 45%,
     transparent 70%
   );
 }

@@ -15,19 +15,15 @@ export default function Home() {
       <HeroSection />
 
       <AboutSection />
-
+      
       <TechToolbox />
-
+      
       <ProjectsSection />
-
+      
       <EducationSection />
-
       
-
       <ContactSection />
-
       
-
       <Footer />
     </div>
   );
