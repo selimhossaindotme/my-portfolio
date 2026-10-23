@@ -24,7 +24,7 @@ A premium, modern developer portfolio website engineered with **Next.js 16 (App 
 - **Location**: Bangladesh
 - **Education**: BSc in Computer Science and Engineering (Expected Graduation: May 2027)
 - **Email**: `selimhossain.dev@gmail.com`
-- **GitHub**: [github.com/selimhossain-dev](https://github.com/selimhossain-dev)
+- **GitHub**: [[github.com/selimhossain-dev](https://github.com/selimhossain-dev](https://github.com/selimhossaindotme))
 - **LinkedIn**: [linkedin.com/in/selimhossain-dev](https://linkedin.com/in/selimhossain-dev)
 
 ---
