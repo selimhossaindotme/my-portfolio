@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Mail,
@@ -124,62 +125,46 @@ export function HeroSection() {
 
           {/* Right Column: Visual Portrait with Atmospheric Ring & Floating Glass Card */}
           <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[380px] aspect-[4/5] rounded-3xl overflow-hidden border border-emerald-500/20 bg-gradient-to-b from-card/80 to-background/90 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] group">
+            <div className="relative w-full max-w-[400px] aspect-[4/5] rounded-3xl overflow-hidden border border-emerald-500/25 bg-gradient-to-b from-card/90 via-card/70 to-background/95 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)] group">
               
-              {/* Backlight halo */}
-              <div className="absolute -top-16 -right-16 w-56 h-56 bg-emerald-500/25 rounded-full blur-[80px] pointer-events-none" />
-              <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-violet-600/20 rounded-full blur-[80px] pointer-events-none" />
+              {/* Backlight halos */}
+              <div className="absolute -top-16 -right-16 w-64 h-64 bg-emerald-500/25 rounded-full blur-[90px] pointer-events-none" />
+              <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-violet-600/25 rounded-full blur-[90px] pointer-events-none" />
 
               {/* Concentric radar rings inside visual frame */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
-                <div className="w-[280px] h-[280px] rounded-full border border-emerald-500/15" />
-                <div className="absolute w-[200px] h-[200px] rounded-full border border-violet-500/15" />
-                <div className="absolute w-[120px] h-[120px] rounded-full border border-emerald-500/20" />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
+                <div className="w-[300px] h-[300px] rounded-full border border-emerald-500/20" />
+                <div className="absolute w-[220px] h-[220px] rounded-full border border-violet-500/20" />
+                <div className="absolute w-[140px] h-[140px] rounded-full border border-emerald-500/25" />
               </div>
 
-              {/* Portrait Content / Developer Graphic */}
-              <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-8 text-center">
-                
-                {/* Modern Avatar / Developer Monogram Illustration */}
-                <div className="relative mb-6">
-                  <div className="w-36 h-36 rounded-3xl bg-gradient-to-br from-emerald-500/20 via-card to-violet-600/30 border-2 border-emerald-500/40 p-1 flex items-center justify-center shadow-[0_0_35px_rgba(16,185,129,0.3)]">
-                    <div className="w-full h-full rounded-[22px] bg-card flex flex-col items-center justify-center space-y-1">
-                      <div className="text-3xl font-bold font-mono tracking-wider bg-gradient-to-r from-emerald-400 to-violet-400 bg-clip-text text-transparent">
-                        SH
-                      </div>
-                      <div className="text-[10px] uppercase tracking-widest text-emerald-400 font-mono">
-                        Developer
-                      </div>
-                    </div>
-                  </div>
+              {/* Real Portrait Image of MD Selim Hossain */}
+              <div className="relative w-full h-full overflow-hidden">
+                <Image
+                  src={profile.avatar || "/selim-hossain.jpg"}
+                  alt={profile.name}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover object-top filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-700"
+                />
 
-                  {/* Tech Floating Orbit Nodes */}
-                  <div className="absolute -top-2 -left-2 w-9 h-9 rounded-xl border border-emerald-500/40 bg-card/90 shadow-md flex items-center justify-center text-emerald-400">
-                    <Server className="w-4 h-4" />
-                  </div>
-                  <div className="absolute -bottom-2 -left-2 w-9 h-9 rounded-xl border border-violet-500/40 bg-card/90 shadow-md flex items-center justify-center text-violet-400">
-                    <Database className="w-4 h-4" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-9 h-9 rounded-xl border border-cyan-500/40 bg-card/90 shadow-md flex items-center justify-center text-cyan-400">
-                    <Layers className="w-4 h-4" />
-                  </div>
-                  <div className="absolute -bottom-2 -right-2 w-9 h-9 rounded-xl border border-emerald-500/40 bg-card/90 shadow-md flex items-center justify-center text-emerald-400">
-                    <FileCode2 className="w-4 h-4" />
-                  </div>
-                </div>
-
-                {/* Subtext info */}
-                <div className="space-y-1">
-                  <h3 className="font-bold text-lg text-foreground tracking-tight">
-                    {profile.name}
-                  </h3>
-                  <p className="text-xs text-muted-foreground font-mono">
-                    Node.js • PostgreSQL • Next.js
-                  </p>
-                </div>
+                {/* Subtle gradient vignette to blend image into the dark card styling */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-85 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-transparent pointer-events-none" />
               </div>
 
-              {/* Floating Highlight Card at the Bottom (Signature element from reference design!) */}
+              {/* Floating Tech Badges on Portrait */}
+              <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-emerald-500/30 bg-background/80 backdrop-blur-md shadow-lg">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[11px] font-mono font-semibold text-foreground">Node.js • Prisma</span>
+              </div>
+
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-violet-500/30 bg-background/80 backdrop-blur-md shadow-lg">
+                <span className="text-[11px] font-mono font-semibold text-violet-400">PostgreSQL</span>
+              </div>
+
+              {/* Floating Highlight Card at the Bottom (Signature element from reference design) */}
               <div className="absolute bottom-4 left-4 right-4 z-20 p-4 rounded-2xl border border-emerald-500/30 bg-background/90 backdrop-blur-xl shadow-2xl space-y-3">
                 <div className="flex items-start gap-2.5">
                   <div className="p-1 rounded-full bg-emerald-500/20 text-emerald-400 mt-0.5">

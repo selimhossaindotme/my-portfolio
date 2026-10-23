@@ -16,13 +16,17 @@ export default function Home() {
 
       <AboutSection />
 
-      <EducationSection />
+      <TechToolbox />
 
       <ProjectsSection />
 
+      <EducationSection />
+
+      
+
       <ContactSection />
 
-      <TechToolbox  />
+      
 
       <Footer />
     </div>

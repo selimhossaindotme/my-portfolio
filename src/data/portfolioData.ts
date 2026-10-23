@@ -30,6 +30,7 @@ export const portfolioData = {
   profile: {
     name: "MD Selim Hossain",
     shortName: "Selim",
+    avatar: "/selim-hossain.jpg",
     tagline: "Junior Full-Stack Developer | Backend-Focused",
     heroHeading: {
       line1: "From",
