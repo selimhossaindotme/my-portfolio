@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #090d16;
+  --card: #ffffff;
+  --card-foreground: #090d16;
+  --popover: #ffffff;
+  --popover-foreground: #090d16;
+  --primary: #059669;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f3e8ff;
+  --accent-foreground: #6b21a8;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #10b981;
+  --radius: 0.75rem;
+
+  --glow-emerald: rgba(16, 185, 129, 0.25);
+  --glow-violet: rgba(139, 92, 246, 0.25);
+}
+
+.dark {
+  --background: #07090e;
+  --foreground: #f1f5f9;
+  --card: #0d121c;
+  --card-foreground: #f1f5f9;
+  --popover: #0d121c;
+  --popover-foreground: #f1f5f9;
+  --primary: #10b981;
+  --primary-foreground: #052e16;
+  --secondary: #161e2e;
+  --secondary-foreground: #f8fafc;
+  --muted: #131b28;
+  --muted-foreground: #94a3b8;
+  --accent: #1e1b4b;
+  --accent-foreground: #c084fc;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #fecaca;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #34d399;
+
+  --glow-emerald: rgba(16, 185, 129, 0.35);
+  --glow-violet: rgba(147, 51, 234, 0.3);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Custom Display Serif for High-End Italic Accents */
+.italic-display {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Atmospheric Glow Utilities */
+.glow-emerald-sm {
+  box-shadow: 0 0 15px -3px rgba(16, 185, 129, 0.25);
+}
+
+.glow-emerald-md {
+  box-shadow: 0 0 25px -4px rgba(16, 185, 129, 0.35);
+}
+
+.glow-violet-md {
+  box-shadow: 0 0 25px -4px rgba(139, 92, 246, 0.4);
+}
+
+.glass-panel {
+  background: rgba(13, 18, 28, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Spotlight Beam Effect */
+.spotlight-radial {
+  background: radial-gradient(
+    ellipse 60% 50% at 50% 0%,
+    rgba(16, 185, 129, 0.18) 0%,
+    rgba(139, 92, 246, 0.08) 50%,
+    transparent 80%
+  );
+}
+
+.spotlight-toolbox {
+  background: radial-gradient(
+    circle at 50% -10%,
+    rgba(20, 184, 166, 0.2) 0%,
+    rgba(139, 92, 246, 0.06) 45%,
+    transparent 70%
+  );
+}
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Pulse Glow */
+@keyframes subtle-pulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 4s ease-in-out infinite;
+}
