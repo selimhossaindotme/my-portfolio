@@ -6,7 +6,6 @@ import { HeroSection } from "@/components/HeroSection";
 import { Navbar } from "@/components/Navbar";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { TechToolbox } from "@/components/TechToolbox";
-import Image from "next/image";
 
 export default function Home() {
   return (
